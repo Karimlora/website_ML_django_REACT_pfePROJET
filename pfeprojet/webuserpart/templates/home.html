@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f6f6f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .header {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .site-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
+        .button {
+            background-color: #2d6187;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #214661;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            max-width: 800px;
+            position: relative;
+        }
+        .left-content {
+            width: 70%;
+            text-align: left;
+        }
+        h1 {
+            color: #4a90e2;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #777;
+            font-size: 1.2em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        li:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .fixed-button {
+            position: fixed;
+            right: 20px; /* Ajustement de la position */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="site-name">Pluto-AI</div>
+        <div class="button-container">
+            <a href="#" class="button">Log in</a> <!-- Lien vers la page de connexion -->
+            <a href="#" class="button">Sign up</a> <!-- Lien vers la page d'inscription -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-content">
+            <h1>Brainstorm ideas with Pluto-AI</h1>
+            <p>Get started by selecting a task below:</p>
+            <ul>
+                <li>Brainstorm names for my fantasy football team</li>
+                <li>Summarize this article as a table of pros and cons</li>
+                <li>Plan a trip to see the northern lights in Norway</li>
+                <li>Give me ideas for a customer loyalty program in a small bookstore</li>
+                <li>Help me pick a gift for my dad who loves fishing</li>
+                <li>Recommend a dish to impress a picky eater</li>
+                <li>Help me debug a Python script automating daily reports</li>
+                <li>Draft an email requesting a deadline extension for my project</li>
+                <li>Write a thank-you note to my interviewer</li>
+                <li>Improve my post for hiring a store associate</li>
+                <li>Suggest fun activities for a family on a rainy day</li>
+                <li>Write a text to cheer up a friend</li>
+            </ul>
+        </div>
+        <div class="fixed-button">
+            <a href="{% url 'login' %}" class="button">Log in</a> <!-- Lien vers la page de connexion -->
+            <a href="{% url 'signup' %}" class="button">Sign up</a> <!-- Lien vers la page d'inscription -->
+        </div>
+    </div>
+</body>
+</html>

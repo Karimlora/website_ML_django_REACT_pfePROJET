@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pluto-AI Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Consolas", "Courier New", monospace; /* Police de type "code" */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow for luxury effect */
+    }
+
+    #bg-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    #bg-wrap svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px; /* Add space between header and main content */
+    }
+
+    .main-content {
+      text-align: center;
+      margin-bottom: 30px; /* Add space between main content and chat box */
+    }
+
+    .file-upload {
+      margin-bottom: 20px; /* Add space between file upload and description */
+    }
+
+    .chat-box {
+      text-align: center;
+    }
+
+    .send-button,
+    .voice-button,
+    .generate-image-button,
+    button {
+      margin-top: 10px; /* Add space between buttons */
+      background-color: #4a90e2; /* Couleur de fond des boutons */
+      color: #fff; /* Couleur du texte des boutons */
+      padding: 10px 20px; /* Espacement interne des boutons */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: "Consolas", "Courier New", monospace; /* Police de type "code" */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow for luxury effect */
+    }
+
+    .send-button:hover,
+    .voice-button:hover,
+    .generate-image-button:hover,
+    button:hover {
+      background-color: #2d6187; /* Couleur de fond des boutons au survol */
+    }
+
+    .welcome-message {
+      font-size: 32px; /* Larger font size for welcome message */
+      margin-bottom: 10px; /* Add space between welcome message and header */
+    }
+
+    h1 {
+      font-size: 28px; /* Larger font size for headings */
+      margin-bottom: 20px; /* Add space below headings */
+    }
+
+    p {
+      font-size: 20px; /* Larger font size for description */
+      margin-bottom: 20px; /* Add space below description */
+    }
+  </style>
+</head>
+<body>
+  <div id="bg-wrap">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255, 0, 255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255, 0, 255, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(255, 255, 0, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(255, 255, 0, 0)"></stop>
+        </radialGradient>
+        <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.836536%" fy="50%" r=".5">
+          <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+          <stop offset="0%" stop-color="rgba(0, 255, 255, 1)"></stop>
+          <stop offset="100%" stop-color="rgba(0, 255, 255, 0)"></stop>
+        </radialGradient>
+      </defs>
+      <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+        <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="-2.17916%" y="35.4267%" width="100%" height="100%" fill="url(#Gradient2)" transform="rotate(255.072 50 50)">
+        <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s" repeatCount="indefinite"></animateTransform>
+      </rect>
+      <rect x="9.00483%" y="14.5733%" width="100%" height="100%" fill="url(#Gradient3)" transform="rotate(139.903 50 50)">
+        <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animate attributeName="y" dur="12s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+        <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s" repeatCount="indefinite"></animateTransform>
+      </rect>
+    </svg>
+  </div>
+  
+  <!-- Content -->
+  <div class="header">
+    <div class="welcome-message">Bonjour et bienvenue dans Pluto-AI, votre compagnon intelligent pour l'exploration des données et l'apprentissage automatique. Nous sommes ravis de vous accueillir dans notre tableau de bord. Préparez-vous à découvrir des fonctionnalités incroyables pour analyser vos données et appliquer des algorithmes de machine learning de pointe. N'hésitez pas à explorer et à expérimenter. Nous sommes là pour vous aider à chaque étape du processus. Commencez par importer vos fichiers et laissez Pluto-AI vous guider vers des découvertes passionnantes!</div>
+  </div>
+
+  <div class="main-content">
+    <div class="file-upload">
+      <h1>Importation de fichier</h1>
+      <p>L'importation de fichiers dans Pluto-AI est la première étape pour explorer et analyser vos données. Que vous ayez des fichiers CSV ou Excel, notre tableau de bord convivial vous permet de les importer en un seul clic. Une fois vos données chargées, vous pourrez les visualiser, les nettoyer et les préparer pour l'analyse. Pluto-AI offre une prise en charge complète des formats de fichiers les plus courants, vous permettant de démarrer rapidement votre projet d'exploration de données et d'apprentissage automatique..</p>
+      <button>Choisir un algorithme de machine learning</button>
+    </div>
+  </div>
+
+  <div class="chat-box">
+    <textarea rows="4" cols="50" placeholder="Entrez votre message..."></textarea>
+    <br>
+    <button class="send-button">Envoyer</button>
+    <button class="voice-button">Démarrer le chat vocal</button>
+    <button class="generate-image-button">Générer une image</button>
+  </div>
+</body>
+</html>
